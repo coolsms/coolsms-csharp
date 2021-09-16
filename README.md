@@ -13,15 +13,15 @@ SendMMS.cs          MMS 발송 예제
 SendAlimtalk.cs     알림톡 발송 예제
 SendChingutalk.cs   친구톡 발송 예제
 GetBalance.cs       잔액 조회 예제
+MessageList         메시지 목록 조회 예제
 ```
 
 ## 예제 실행 방법
 아래 형식으로 실행하며 소문자에 주의해 주세요.
 ```
-Messaging.exe [sms, lms, mms, alimtalk, chingutalk, balance]
+Messaging.exe [sms, lms, mms, alimtalk, chingutalk, balance, list]
 ```
 
 맥에서 실행
 ```
-dotnet Messaging_SDK_For_.NET_Core3.1_CSharp.dll [sms, lms, mms, alimtalk, chingutalk, balance]
-```
+dotnet Messaging_SDK_For_.NET_Core3.1_CSharp.dll [sms, lms, mms, alimtalk, chingutalk, balance, list]

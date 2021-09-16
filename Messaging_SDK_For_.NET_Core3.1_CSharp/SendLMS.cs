@@ -1,22 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Globalization;
-using System.IO;
-using System.Linq;
-using System.Reflection;
-using System.Runtime.CompilerServices;
-using System.Security;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.VisualBasic;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 
 static class SendLMS
 {
     public static void Run()
     {
+        // TextingLib.GetGroupList()
+        // Dim group = New TextingLib.Group()
+        // Console.WriteLine(group.GetList())
+
         MessagingLib.Messages messages = new MessagingLib.Messages();
         messages.Add(new MessagingLib.Message()
         {

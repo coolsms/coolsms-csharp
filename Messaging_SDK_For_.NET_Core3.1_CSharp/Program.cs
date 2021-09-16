@@ -46,12 +46,23 @@ static class Program
                     GetBalance.Run();
                     return;
                 }
+            case "list":
+                {
+                    SimpleList.Run();
+                    // Pagination.Run();
+                    // SearchDate.Run();
+                    // SearchGroup.Run();
+                    // SearchByMessageID.Run();
+                    // SearchByStatusCode.Run();
+                    // SearchByTo.Run();
+                    return;
+                }
         }
         PrintHelp();
     }
 
     public static void PrintHelp()
     {
-        Console.WriteLine("Nurigo [sms, lms, mms, alimtalk, chingutalk, balance] 형식으로 실행하세요(소문자 주의)");
+        Console.WriteLine("Nurigo [sms, lms, mms, alimtalk, chingutalk, balance, list] 형식으로 실행하세요(소문자 주의)");
     }
 }
