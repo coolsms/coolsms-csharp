@@ -25,3 +25,4 @@ Messaging.exe [sms, lms, mms, alimtalk, chingutalk, balance, list]
 맥에서 실행
 ```
 dotnet Messaging_SDK_For_.NET_Core3.1_CSharp.dll [sms, lms, mms, alimtalk, chingutalk, balance, list]
+```
