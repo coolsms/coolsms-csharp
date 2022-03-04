@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using Microsoft.VisualBasic;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
@@ -78,7 +77,7 @@ static class MessagingLib
     {
         System.Security.Cryptography.HMACSHA256 sha256 = new System.Security.Cryptography.HMACSHA256(System.Text.Encoding.UTF8.GetBytes(apiSecret));
         byte[] hashValue = sha256.ComputeHash(System.Text.Encoding.UTF8.GetBytes(data));
-        string hash = Strings.Replace(BitConverter.ToString(hashValue), "-", "");
+        string hash = BitConverter.ToString(hashValue).Replace("-", "");
         return hash.ToLower();
     }
 
@@ -114,7 +113,7 @@ static class MessagingLib
         return url;
     }
 
-    public static Response Request(string path, string method, string data = Constants.vbNullString)
+    public static Response Request(string path, string method, string data = null)
     {
         string auth = GetAuth(Config.apiKey, Config.apiSecret);
 
@@ -123,6 +122,7 @@ static class MessagingLib
             System.Net.WebRequest req = System.Net.WebRequest.Create(GetUrl(path));
             req.Method = method;
             req.Headers.Add("Authorization", auth);
+            // req.ContentType = "application/json; charset=utf-8"; // .NetFrameWork 호환성으로 인한 오류 발생 시 이 구문 사용. 아래 구문은 주석처리 
             req.Headers.Add("Content-type", "application/json; charset=utf-8");
 
             if (!string.IsNullOrEmpty(data))
