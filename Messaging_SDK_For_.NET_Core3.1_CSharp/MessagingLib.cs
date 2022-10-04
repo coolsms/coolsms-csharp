@@ -1,10 +1,23 @@
-﻿using System;
+﻿#nullable enable
+using System;
 using System.Collections.Generic;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
 static class MessagingLib
 {
+    public class Agent
+    {
+        public string osPlatform;
+        public string sdkVersion;
+        
+        public Agent()
+        {
+            osPlatform = Environment.OSVersion.Platform + " | " + Environment.Version;
+            sdkVersion = "C#/1.0.1";
+        }
+    }
+    
     public class Message
     {
         public string type;
@@ -208,8 +221,8 @@ static class MessagingLib
         {
             GroupInfo groupInfo = new GroupInfo()
             {
-                osPlatform = Environment.OSVersion.VersionString,
-                sdkVersion = "VB.NET v1"
+                osPlatform = Environment.OSVersion.VersionString + " | " + Environment.Version,
+                sdkVersion = "C#/1.0.1"
             };
             return Request("/messages/v4/groups", "POST", JsonConvert.SerializeObject(groupInfo, Formatting.None, JsonSettings));
         }
@@ -224,6 +237,28 @@ static class MessagingLib
     public static Response SendMessages(Messages messages)
     {
         return Request("/messages/v4/send-many", "POST", JsonConvert.SerializeObject(messages, Formatting.None, JsonSettings));
+    }
+    
+    public static Response SendMessagesDetail(List<Message> messages, DateTime? dateTime = null)
+    {
+        String? scheduledDate = null; 
+        if (dateTime != null)
+        {
+            scheduledDate = dateTime.Value.ToString("s");
+            if (scheduledDate != "")
+            {
+                scheduledDate += "Z";
+            }    
+        }
+
+        var agent = new Agent();
+        var payload = new
+        {
+            agent,
+            messages,
+            scheduledDate
+        };
+        return Request("/messages/v4/send-many/detail", "POST", JsonConvert.SerializeObject(payload, Formatting.None, JsonSettings));
     }
 
     public static Response UploadImage(string path)

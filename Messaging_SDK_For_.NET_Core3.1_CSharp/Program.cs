@@ -9,55 +9,62 @@ static class Program
             PrintHelp();
             return;
         }
+
         switch (args[0])
         {
             case "sms":
-                {
-                    SendSMS.Run();
-                    return;
-                }
+            {
+                SendSMS.Run();
+                return;
+            }
 
             case "lms":
-                {
-                    SendLMS.Run();
-                    return;
-                }
+            {
+                SendLMS.Run();
+                return;
+            }
 
             case "mms":
-                {
-                    SendMMS.Run();
-                    return;
-                }
+            {
+                SendMMS.Run();
+                return;
+            }
 
             case "alimtalk":
-                {
-                    SendAlimtalk.Run();
-                    return;
-                }
+            {
+                SendAlimtalk.Run();
+                return;
+            }
 
             case "chingutalk":
-                {
-                    SendChingutalk.Run();
-                    return;
-                }
+            {
+                SendChingutalk.Run();
+                return;
+            }
 
             case "balance":
-                {
-                    GetBalance.Run();
-                    return;
-                }
+            {
+                GetBalance.Run();
+                return;
+            }
             case "list":
-                {
-                    SimpleList.Run();
-                    // Pagination.Run();
-                    // SearchDate.Run();
-                    // SearchGroup.Run();
-                    // SearchByMessageID.Run();
-                    // SearchByStatusCode.Run();
-                    // SearchByTo.Run();
-                    return;
-                }
+            {
+                SimpleList.Run();
+                // Pagination.Run();
+                // SearchDate.Run();
+                // SearchGroup.Run();
+                // SearchByMessageID.Run();
+                // SearchByStatusCode.Run();
+                // SearchByTo.Run();
+                return;
+            }
+            case "scheduled":
+            {
+                SendScheduledMessages.Run();
+                return;
+            }
         }
+
         PrintHelp();
     }
 
