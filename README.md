@@ -7,13 +7,14 @@
 
 ## 예제
 ```
-SendSMS.cs          SMS 발송 예제
-SendLMS.cs          LMS 발송 예제
-SendMMS.cs          MMS 발송 예제
-SendAlimtalk.cs     알림톡 발송 예제
-SendChingutalk.cs   친구톡 발송 예제
-GetBalance.cs       잔액 조회 예제
-MessageList         메시지 목록 조회 예제
+SendSMS.cs                  SMS 발송 예제
+SendLMS.cs                  LMS 발송 예제
+SendMMS.cs                  MMS 발송 예제
+SendAlimtalk.cs             알림톡 발송 예제
+SendChingutalk.cs           친구톡 발송 예제
+GetBalance.cs               잔액 조회 예제
+MessageList                 메시지 목록 조회 예제 목록
+SendScheduledMessages.cs    예약 발송 예제
 ```
 
 ## 예제 실행 방법
