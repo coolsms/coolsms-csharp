@@ -14,7 +14,7 @@ static class MessagingLib
         public Agent()
         {
             osPlatform = Environment.OSVersion.Platform + " | " + Environment.Version;
-            sdkVersion = "C#/1.0.1";
+            sdkVersion = "C#/1.0.2";
         }
     }
     
@@ -289,5 +289,10 @@ static class MessagingLib
     public static Response GetGroupList()
     {
         return Request("/messages/v4/groups", "GET");
+    }
+
+    public static Response RemoveReservationToGroup(string groupId)
+    {
+        return Request($"/messages/v4/groups/{groupId}/schedule", "DELETE");
     }
 }
